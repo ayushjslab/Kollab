@@ -26,6 +26,7 @@ interface SidebarItemProps {
   id: string;
   icon: LucideIcon | IconType;
   variant?: VariantProps<typeof sidebarItemsVariant>["variant"];
+  channel?: boolean;
 }
 
 export const SidebarItem = ({
@@ -33,6 +34,7 @@ export const SidebarItem = ({
   id,
   icon: Icon,
   variant,
+  channel=false
 }: SidebarItemProps) => {
   const workspaceId = useWorkspaceId();
   return (
@@ -43,7 +45,7 @@ export const SidebarItem = ({
       className={cn(sidebarItemsVariant({ variant }))}
     >
       <Link href={`/workspace/${workspaceId}/channel/${id}`}>
-        <Icon className="size-3.5 mr-1 shrink-0" />
+        <Icon className={`size-3.5 mr-1 shrink-0 ${channel && "ml-5"}`} />
         <span className="text-sm truncate">{label}</span>
       </Link>
     </Button>

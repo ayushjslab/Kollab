@@ -29,7 +29,7 @@ export const SidebarButton = ({
           <FillIcon
             color="#38CABC"
             className={cn(
-              "scale-150 text-white transition-transform duration-200 group-hover:scale-125 group-hover:text-[#2C2C2C] hover:text-[#2C2C2C] hover:bg-red-600"
+              "scale-150 text-white transition-transform duration-200 group-hover:scale-125 group-hover:text-[#2C2C2C] hover:text-[#2C2C2C] "
             )}
           />
         </Button>
@@ -37,7 +37,7 @@ export const SidebarButton = ({
         <Button
           variant={"transparent"}
           className={cn(
-            "p-3 rounded-xl bg-[#E3D2C3] shadow-lg shadow-[#0e9285]/40 transition-all duration-300 scale-110 ease-in-out group-hover:bg-[#ffe7d1] group-hover:scale-125 text-[#2C2C2C]"
+            "p-3 rounded-xl bg-teal-600 shadow-lg shadow-[#0e9285]/40 transition-all duration-300 scale-110 ease-in-out group-hover:bg-[#ffe7d1] group-hover:scale-125 text-[#2C2C2C]"
           )}
         >
           <Icon
@@ -50,7 +50,7 @@ export const SidebarButton = ({
       )}
       <span
         className={cn(
-          "text-[12px] text-white font-medium tracking-wide transition-all duration-300 group-hover:text-[#116466] group-hover:translate-y-1",
+          "text-[12px] text-white font-medium tracking-wide transition-all duration-300 group-hover:text-[#edffff] group-hover:translate-y-1",
           isActive && "text-[#118385] translate-y-1"
         )}
       >

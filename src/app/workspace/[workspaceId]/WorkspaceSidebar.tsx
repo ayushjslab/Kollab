@@ -77,6 +77,7 @@ export const WorkspaceSidebar = () => {
             label={item.name}
             id={item._id}
             variant={channelId === item._id ? "active" : "default"}
+            channel={true}
           />
         ))}
       </WorkspaceSection>

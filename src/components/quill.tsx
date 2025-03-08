@@ -10,6 +10,7 @@ import { CopyIcon, Cpu, EyeIcon } from "lucide-react";
 import { toast } from "sonner";
 import { Hint } from "./hint";
 import AIDialog from "@/AI/AIDialog";
+import Preview from "@/AI/Preview";
 
 interface QuillEditorProps {
   value: string; // Quill Delta JSON string passed as prop
@@ -19,6 +20,7 @@ interface QuillEditorProps {
 const QuillEditor = ({ value, tools = false }: QuillEditorProps) => {
   const editorRef = useRef<HTMLDivElement>(null);
   const [quillInstance, setQuillInstance] = useState<Quill | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     if (!editorRef.current) return;
 
@@ -67,6 +69,7 @@ const QuillEditor = ({ value, tools = false }: QuillEditorProps) => {
   };
 
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [isPreviewDialogOpen, setIsPreviewDialogOpen] = useState<boolean>(false);
 
   // Function to handle dialog open/close
   const openDialog = () => {
@@ -77,6 +80,13 @@ const QuillEditor = ({ value, tools = false }: QuillEditorProps) => {
     setIsDialogOpen(false);
   };
 
+  const openPreviewDialog = () => {
+    setIsPreviewDialogOpen(true);
+  };
+
+  const closePreviewDialog = () => {
+    setIsPreviewDialogOpen(false);
+  };
 
   return (
     <>
@@ -102,6 +112,10 @@ const QuillEditor = ({ value, tools = false }: QuillEditorProps) => {
                 variant="ghost"
                 size="iconSm"
                 className="rounded-full hover:bg-teal-300/20 text-white"
+                disabled={loading}
+                onClick={() => {
+                  openPreviewDialog();
+                }}
               >
                 <EyeIcon className="size-4" />
               </Button>
@@ -124,7 +138,18 @@ const QuillEditor = ({ value, tools = false }: QuillEditorProps) => {
         </div>
       )}
       <div ref={editorRef} className="quill-editorCB" />
-      <AIDialog isOpen={isDialogOpen} onClose={closeDialog} value={value} text={quillInstance?.getText() || ""} />
+      <AIDialog
+        isOpen={isDialogOpen}
+        onClose={closeDialog}
+        value={value}
+        text={quillInstance?.getText() || ""}
+      />
+      <Preview
+        isOpen={isPreviewDialogOpen}
+        onClose={closePreviewDialog}
+        code={quillInstance?.getText() || ""}
+        setLoading={setLoading}
+      />
     </>
   );
 };

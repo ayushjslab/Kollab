@@ -52,10 +52,10 @@ export const WorkspaceSwitcher = () => {
         {/* Active Workspace */}
         <DropdownMenuItem
           onClick={() => router.push(`/workspace/${workspaceId}`)}
-          className="cursor-pointer flex flex-col gap-1 px-3 py-2 hover:bg-[#f3e5f5] rounded-xl transition"
+          className="cursor-pointer flex flex-col gap-1 px-3 py-2 hover:bg-[#f3e5f5] rounded-xl transition group"
         >
           <span className={`${playwrite.className} text-xl font-medium text-[#481349]`}>{workspace?.name}</span>
-          <span className="text-xs text-gray-500">Active workspace</span>
+          <span className="text-xs text-gray-200 hover:text-gray-800">Active workspace</span>
         </DropdownMenuItem>
 
         {/* Other Workspaces */}

@@ -26,6 +26,8 @@ export const WorkspaceSidebar = () => {
 
   const [_open, setOpen] = useCreateChannelModal();
 
+  console.log(_open)
+
   const { data: member, isLoading: memberLoading } = useCurrentMember({
     workspaceId,
   });
@@ -39,6 +41,9 @@ export const WorkspaceSidebar = () => {
   const { data: members, isLoading: membersLoading } = useGetMembers({
     workspaceId,
   });
+
+  console.log(channelsLoading)
+  console.log(membersLoading)
 
   if (workspaceLoading || memberLoading) {
     return (

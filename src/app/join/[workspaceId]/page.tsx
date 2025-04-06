@@ -19,6 +19,7 @@ interface JoinPagePops {
 
 const JoinPage = ({params}: JoinPagePops) => {
 
+  console.log(params)
     const router = useRouter();
 
     const {mutate, isPending} = useJoin();

@@ -135,7 +135,8 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
     return (
       <div className="h-full flex flex-col">
         <div className="flex justify-between items-center h-[49px] px-4 border-b">
-          <p className="text-lg font-bold">Thread</p>
+          <p className="text-lg font-bold">Thread
+          </p>
           <Button onClick={onClose} size={"iconSm"} variant={"ghost"}>
             <XIcon className="size-5 stroke-[1.5]" />
           </Button>

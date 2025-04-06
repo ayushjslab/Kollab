@@ -26,6 +26,8 @@ export const WorkspaceSwitcher = () => {
   });
   const { data: workspaces, isLoading: workspacesLoading } = useGetWorkspaces();
 
+  console.log(workspacesLoading)
+
   // I am not want to render curently workspace
   const filteredWorkspaces = workspaces?.filter(
     (workspace) => workspace?._id !== workspaceId

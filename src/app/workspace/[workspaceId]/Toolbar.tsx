@@ -19,7 +19,6 @@ import { useRouter } from "next/navigation";
 import { DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { CgMonday } from "react-icons/cg";
-import { marckScript } from "@/components/fonts";
 
 export const Toolbar = () => {
   const router = useRouter();
@@ -28,6 +27,8 @@ export const Toolbar = () => {
   const [open, setOpen] = useState(false);
   const { data: channels } = useGetChannels({ workspaceId });
   const { data: members } = useGetMembers({ workspaceId });
+
+  console.log(data)
 
   console.log(channels, members, "dvjri");
 

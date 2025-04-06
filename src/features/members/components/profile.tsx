@@ -54,6 +54,8 @@ export const Profile = ({ memberId, onClose }: ProfileProps) => {
   const { mutate: removeMember, isPending: isRemovingMember } =
     useRemoveMember();
 
+    console.log(isUpdatingMember, isRemovingMember)
+
   const onRemove = async () => {
     const ok = await confirmRemove();
     if (!ok) return;

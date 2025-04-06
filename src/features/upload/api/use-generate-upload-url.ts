@@ -28,25 +28,25 @@ const isSettled = useMemo(() => status === "settled" , [status]);
   const mutation = useMutation(api.upload.generateUploadUrl);
 
   const mutate = useCallback(
-    async (_values: {}, options?: Options) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async (_values: any, options?: Options) => {
       try {
         setData(null);
         setError(null);
         setStatus("pending");
 
-
         const response = await mutation();
         options?.onSuccess?.(response);
         return response;
       } catch (error) {
-        setStatus("error")
+        setStatus("error");
         options?.onError?.(error as Error);
         if (options?.throwError) {
           throw error;
         }
       } finally {
         setStatus("settled");
-        
+
         options?.onSettled?.();
       }
     },

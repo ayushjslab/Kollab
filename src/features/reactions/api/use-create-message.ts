@@ -7,7 +7,15 @@ type RequestType = {
   value: string;
   messageId: Id<"messages">
 };
-type ResponseType = Id<"reactions"> | null;
+type ResponseType = {
+  _id: Id<"reactions">;
+  _creationTime: number;
+  workspaceId: Id<"workspaces">;
+  memberId: Id<"members">;
+  messageId: Id<"messages">;
+  value: string;
+} | null;
+
 
 type Options = {
   onSuccess?: (data: ResponseType) => void;
@@ -39,8 +47,12 @@ export const useToggleReactions = () => {
         setStatus("pending");
 
         const response = await mutation(values);
-        options?.onSuccess?.(response);
-        return response;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const id = (response as any)?._id ?? null;
+        setData(id);
+        options?.onSuccess?.(id);
+        return id;
+
       } catch (error) {
         setStatus("error");
         options?.onError?.(error as Error);

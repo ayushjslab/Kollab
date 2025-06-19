@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "convex-deploy": "npm install --legacy-peer-deps && npm run build"
   },
   "dependencies": {
     "@auth/core": "^0.37.4",

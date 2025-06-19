@@ -13,8 +13,6 @@
     "@auth/core": "^0.37.4",
     "@codesandbox/sandpack-react": "^2.20.0",
     "@convex-dev/auth": "^0.0.80",
-    "@emoji-mart/data": "^1.2.1",
-    "@emoji-mart/react": "^1.1.1",
     "@google/generative-ai": "^0.24.0",
     "@monaco-editor/react": "^4.7.0",
     "@radix-ui/react-avatar": "^1.1.3",
